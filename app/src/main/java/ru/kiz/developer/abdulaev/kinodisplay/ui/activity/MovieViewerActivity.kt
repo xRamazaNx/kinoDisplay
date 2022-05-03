@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import ru.kiz.developer.abdulaev.kinodisplay.BuildConfig
 import ru.kiz.developer.abdulaev.kinodisplay.app
 import ru.kiz.developer.abdulaev.kinodisplay.databinding.ActivityMoviesBinding
 import ru.kiz.developer.abdulaev.kinodisplay.ui.MovieAdapter
@@ -19,7 +20,7 @@ import ru.kiz.developer.abdulaev.kinodisplay.ui.MovieViewModel
 class MovieViewerActivity : AppCompatActivity() {
     private val binding by lazy { ActivityMoviesBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<MovieViewModel> {
-        app().viewModelFactoryProvider.movieViewModelFactory("Put the api-key here")
+        app().viewModelFactoryProvider.movieViewModelFactory(BuildConfig.apiKey)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
